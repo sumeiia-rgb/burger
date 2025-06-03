@@ -6,6 +6,7 @@ import cheeseImg from './assets/cheese.jpeg';
 import saladImg from './assets/salad.jpeg';
 import baconImg from './assets/bacon.jpeg';
 import {useState} from "react";
+import ProductButton from "./Components/ProductButton/ProductButton.tsx";
 
 
 interface Ingredient {
@@ -33,6 +34,9 @@ const App = () => {
     <div className="container">
         <div className="ingredientsBlock">
         <h3>ingredients</h3>
+            {products.map(product => (
+                <ProductButton image={product.image} />
+            ))}
             <Ingredients />
         </div>
         <div className="burgerBlock">
