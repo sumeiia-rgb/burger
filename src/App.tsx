@@ -7,7 +7,7 @@ import saladImg from './assets/salad.jpeg';
 import baconImg from './assets/bacon.jpeg';
 import {useState} from "react";
 import ProductButton from "./Components/ProductButton/ProductButton.tsx";
-
+import IngredientName from "./Components/IngredientName/IngredientName.tsx";
 
 interface Ingredient {
     name: string,
@@ -36,6 +36,9 @@ const App = () => {
         <h3>ingredients</h3>
             {products.map(product => (
                 <ProductButton image={product.image} />
+            ))}
+            {products.map(product => (
+                <IngredientName name={product.name} />
             ))}
             <Ingredients />
         </div>
