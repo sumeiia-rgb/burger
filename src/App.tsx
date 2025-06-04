@@ -9,6 +9,7 @@ import ProductButton from "./Components/ProductButton/ProductButton.tsx";
 import IngredientName from "./Components/IngredientName/IngredientName.tsx";
 import PlusButton from "./Components/PlusButton/PlusButton.tsx";
 import Count from "./Components/Count/Count.tsx";
+import RemoveIngredient from "./Components/RemoveIngredient/RemoveIngredient.tsx";
 
 interface Ingredient {
     name: string,
@@ -44,6 +45,21 @@ const App = () => {
             })
             })
     }
+
+    const removeIngredient = (id: string) => {
+        setIngredients((prevState) => {
+            return prevState.map(ingredient => {
+                if (ingredient.id === id) {
+                    return {
+                        ...ingredient,
+                        count: ingredient.count - 1,
+                    }
+                }
+                return ingredient;
+            })
+        })
+    }
+
     return (
     <div className="container">
         <div className="ingredientsBlock">
@@ -67,6 +83,11 @@ const App = () => {
             <div className="count">
                 {ingredients.map((ingredient) => (
                     <Count count={ingredient.count}/>
+                ))}
+            </div>
+            <div className="removeIngredient">
+                {ingredients.map((ingredient) => (
+                    <RemoveIngredient id={ingredient.id} removeIngredient={() => removeIngredient(ingredient.id)} />
                 ))}
             </div>
         </div>
