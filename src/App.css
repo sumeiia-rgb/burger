@@ -15,4 +15,17 @@
   width: 300px;
   border: 2px solid black;
   border-radius: 3px;
+  display: flex;
+}
+
+.name{
+  margin-top: 15px;
+}
+
+.plusOne{
+  margin-top: 5px;
+}
+
+.count{
+  margin-top: 6px;
 }

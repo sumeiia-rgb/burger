@@ -6,7 +6,7 @@ interface IngredientNameProps {
 
 const IngredientName = (props: IngredientNameProps) => {
     return (
-        <div className="IngredientName">
+        <div className="ingredientName">
             {props.name}
         </div>
     );
