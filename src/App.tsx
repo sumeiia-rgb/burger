@@ -1,4 +1,3 @@
-import Burger from "./Components/Burger/Burger.tsx";
 import './App.css'
 import meatImg from './assets/meat.jpeg';
 import cheeseImg from './assets/cheese.jpeg';
@@ -63,15 +62,11 @@ const App = () => {
     }
 
     const remover = (className: string) => {
-        products.map(item => {
-            setSum(sum - item.price);
-            console.log(item.price);
-        })
 
         setIngredients((prevState) => {
             return prevState.map(ingredient => {
                 products.map(item => {
-                    setSum(sum - item.price)
+                    setSum(sum - (item.price * array.length))
                 })
                 if (ingredient.name === className) {
                     return {
@@ -134,7 +129,6 @@ const App = () => {
                 ))}
                 <div className="BreadBottom"></div>
             </div>
-            <Burger/>
             <div>{sum} price</div>
         </div>
     </div>
